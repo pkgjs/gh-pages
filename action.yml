@@ -1,10 +1,21 @@
-name: 'Container Action Template'
-description: 'Get started with Container actions'
-author: 'GitHub'
-inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+name: 'Setup gh-pages branch'
+description: 'Creates a gh-pages branch and mounts it on the target git checkout'
+author: 'Wes Todd'
+inputs:
+  dir:
+    description: 'Directory to mount gh-pages branch in'
+    default: 'gh-pages'
+  initmsg:
+    description: 'The commit message if creating the gh-pages branch'
+    default: 'gh-pages init'
+  repo:
+    description: 'The github repo to push to'
+  commit:
+    description: 'Should the action commit change on the gh-pages branch'
+  build:
+    description: 'Build command'
+  nojekyll:
+    description: 'Add a .nojekyll file'
 runs:
   using: 'docker'
   image: 'Dockerfile'

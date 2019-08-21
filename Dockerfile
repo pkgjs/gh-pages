@@ -1,7 +1,7 @@
 FROM node:slim
 
-COPY . .
+RUN apt-get update
+RUN apt-get install -y git
 
-RUN npm install --production
-
-ENTRYPOINT ["node", "/lib/main.js"]
+COPY "entrypoint.sh" "/entrypoint.sh"
+ENTRYPOINT ["/entrypoint.sh"]
